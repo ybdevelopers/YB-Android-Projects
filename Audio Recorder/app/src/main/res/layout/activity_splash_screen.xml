@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".SplashScreenActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:textSize="32sp"
+        android:fontFamily="@font/roboto_slab_bold"
+        android:textColor="@color/light_brown"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:theme="@style/AppTheme.WhiteAccent"
+        android:layout_above="@+id/created_by"/>
+
+    <TextView
+        android:id="@+id/created_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="14dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:text="@string/created_by_yb_developers"
+        android:fontFamily="@font/roboto_light"
+        android:textColor="@color/light_brown"/>
+</RelativeLayout>

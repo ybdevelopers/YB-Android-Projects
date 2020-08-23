@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recorderFragment">
+
+    <fragment
+        android:id="@+id/recorderFragment"
+        android:name="com.yb.audiorecorder.RecorderFragment"
+        android:label="fragment_recorder"
+        tools:layout="@layout/fragment_recorder" >
+        <action
+            android:id="@+id/action_recorderFragment_to_audioListFragment"
+            app:destination="@id/audioListFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_in"/>
+    </fragment>
+    <fragment
+        android:id="@+id/audioListFragment"
+        android:name="com.yb.audiorecorder.AudioListFragment"
+        android:label="fragment_audio_list"
+        tools:layout="@layout/fragment_audio_list" />
+</navigation>

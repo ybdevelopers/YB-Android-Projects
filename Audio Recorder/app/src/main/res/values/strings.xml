@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Audio Recorder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_recording">Press the mic button\n to start recording</string>
+    <string name="created_by_yb_developers">Created by YB Developers</string>
+    <string name="media_player">Media Player</string>
+    <string name="not_playing">Not Playing</string>
+    <string name="recording_file_name">Recording File Name</string>
+    <string name="file_name">File Name</string>
+    <string name="playing">Playing...</string>
+    <string name="finished">Finished...</string>
+    <string name="stopped">Stopped...</string>
+    <string name="file_saved">Recording Stopped.\nYour File Has Been Saved.</string>
+    <string name="recording_file_name_is">Recording File Name:\n</string>
+    <string name="no_data">Sorry, you had not recorded\nany file in our application.</string>
+</resources>
