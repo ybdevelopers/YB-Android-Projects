@@ -1,1 +1,3 @@
-This Application is created mainly for ToDo List. the whole application is developed in kotlin. we had used room database, data binding and small other features in this application.
+This Application is created mainly for ToDo List. the whole application is developed in kotlin. we had used room database,
+data binding and small other features in this application. In this user can create, update and delete their notes. user can search their notes.
+apaert from that user can sort theie notes from High Priority to low, and low to High as well.
