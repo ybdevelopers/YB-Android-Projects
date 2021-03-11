@@ -1,0 +1,10 @@
+We have created Razor Pay Integration Sample Application for future use. You Just have to did some minor changes and simply you can use this project.
+We had created in kotlin, so if any one required in java then please email us @ yb.devhelpdesk@gmail.com
+
+========================================================================Razor Pay Changes===============================================================================
+1. Open https://razorpay.com
+2. Just Create new Account and if already have then please login.
+3. After Successful Login in Dashboard On The Top Right side please select Test mode If Live mode is selected.
+4. On Left side menu please select setting option you should find API Keys just create new API key and copy the api_key_id and pasete to our AndroidManifest.xml 
+5. In MainActivityKt just add your actual email and original Mobile Number.
+6. That's it. You should able to run the application of razor pay integration. Enjoy :)
