@@ -1,4 +1,0 @@
-In this project i had added Multiple marker in first screen from api. when we tap on marker lat long will be visible to that particular marker.
-As and when api call will completed i had added button on the bottom side so it will be visible after that.
-when you clicked on that you will see all the details of user and when you clicked on the particualr item that single item will be shown in popup.
-simple you have to click on cross icon to close the popup.
