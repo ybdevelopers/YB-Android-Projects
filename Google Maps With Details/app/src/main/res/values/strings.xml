@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Maps With Details</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="you_had_clicked">\"You Had Just Clicked on %1$s"</string>
-    <string name="come_from">dataComingFrom</string>
-    <string name="something_went_wrong">Something went wrong...Please try later!</string>
-    <string name="click_here_to_get_all_user_details">Click Here to Get All User Details</string>
-</resources>
