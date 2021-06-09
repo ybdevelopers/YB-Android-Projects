@@ -1,9 +1,10 @@
-package com.ybdevelopers.mobilefeature
+package com.ybdevelopers.mobilefeature.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.ybdevelopers.mobilefeature.R
 import com.ybdevelopers.mobilefeature.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,
+            R.layout.activity_main
+        )
     }
 
     override fun onSupportNavigateUp(): Boolean {

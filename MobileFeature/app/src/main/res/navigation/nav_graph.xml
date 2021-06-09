@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listingFragment"
-        android:name="com.ybdevelopers.mobilefeature.ListingFragment"
+        android:name="com.ybdevelopers.mobilefeature.ui.ListingFragment"
         android:label="fragment_listing"
         tools:layout="@layout/fragment_listing" />
 </navigation>
