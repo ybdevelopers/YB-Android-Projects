@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.gson.JsonArray;
 import com.ybdevelopers.demoproject.adapter.FeatureAdapter;
 import com.ybdevelopers.demoproject.adapter.OtherFeatureAdapter;
 import com.ybdevelopers.demoproject.adapter.StorageOptionAdapter;
@@ -22,8 +21,6 @@ import com.ybdevelopers.demoproject.retrofit.RetrofitClass;
 import com.ybdevelopers.demoproject.retrofit.RetrofitInterface;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -65,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements Callback, Feature
             binding.tvFirstName.setText(featureArrayList.get(0).getName());
             binding.tvSecondName.setText(featureArrayList.get(1).getName());
             binding.tvThirdName.setText(featureArrayList.get(2).getName());
-
             // for first recycler view
             featureAdapter = new FeatureAdapter(featureArrayList, MainActivity.this, MainActivity.this);
             binding.rvFirstData.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
@@ -106,18 +102,30 @@ public class MainActivity extends AppCompatActivity implements Callback, Feature
         soid = featureArrayList.get(1).getOptions().get(position).getId();
         Toast.makeText(this, sfid + "/" + soid, Toast.LENGTH_SHORT).show();
         binding.clThird.setVisibility(View.VISIBLE);
+        countValidOrNot();
+    }
 
-
-        for (int i=0;i<mainJsonArray.length();i++){
-            try {
-                JSONArray detail = mainJsonArray.getJSONArray(i);
-                for (int j=0;j<2;j++){
-                    JSONObject jsonObject = detail.getJSONObject(j);
-                    Log.e("Single item:",jsonObject.toString());
+    private void countValidOrNot() {
+        for (int i = 0; i < exclusionArrayList.size(); i++) {
+            if (Integer.parseInt(mfid) == Integer.parseInt(exclusionArrayList.get(i).get(0).getFeatureId()) && Integer.parseInt(moid) == Integer.parseInt(exclusionArrayList.get(i).get(0).getOptionsId())) {
+                if (Integer.parseInt(sfid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getFeatureId()) && Integer.parseInt(soid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getOptionsId())) {
+                    Log.e("Data", "Invalid...");
+                    storageOptionAdapter.notifyDataSetChanged();
+                } else if (Integer.parseInt(ofid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getFeatureId()) && Integer.parseInt(ooid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getOptionsId())) {
+                    Log.e("Data", "Other Feature NOt Valid...");
                 }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } else if (Integer.parseInt(sfid) == Integer.parseInt(exclusionArrayList.get(i).get(0).getFeatureId()) && Integer.parseInt(soid) == Integer.parseInt(exclusionArrayList.get(i).get(0).getOptionsId())) {
+                if (Integer.parseInt(mfid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getFeatureId()) && Integer.parseInt(moid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getOptionsId())) {
+                    Log.e("Data", "Invalid...");
+                } else if (Integer.parseInt(ofid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getFeatureId()) && Integer.parseInt(ooid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getOptionsId())) {
+                    Log.e("Data", "Other Feature NOt Valid...");
+                }
+            } else if (Integer.parseInt(ofid) == Integer.parseInt(exclusionArrayList.get(i).get(0).getFeatureId()) && Integer.parseInt(ooid) == Integer.parseInt(exclusionArrayList.get(i).get(0).getOptionsId())) {
+                if (Integer.parseInt(mfid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getFeatureId()) && Integer.parseInt(moid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getOptionsId())) {
+                    Log.e("Data", "Invalid...");
+                } else if (Integer.parseInt(sfid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getFeatureId()) && Integer.parseInt(soid) == Integer.parseInt(exclusionArrayList.get(i).get(1).getOptionsId())) {
+                    Log.e("Data", "Other Feature NOt Valid...");
+                }
             }
         }
     }
@@ -127,5 +135,6 @@ public class MainActivity extends AppCompatActivity implements Callback, Feature
         ofid = "3";
         ooid = featureArrayList.get(2).getOptions().get(position).getId();
         Toast.makeText(this, ofid + "/" + ooid, Toast.LENGTH_SHORT).show();
+        countValidOrNot();
     }
 }
