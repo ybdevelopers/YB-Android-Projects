@@ -19,9 +19,10 @@ import java.util.List;
 public class StorageOptionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
     private Context context;
     private List<Feature> featureList;
-    private MobileClickListener mobileClickListener;
+    private StorageClickListener storageClickListener;
 
-    public StorageOptionAdapter(List<Feature> featureLists, Context context) {
+    public StorageOptionAdapter(List<Feature> featureLists, Context context, StorageClickListener storageClickListener) {
+        this.storageClickListener = storageClickListener;
         this.featureList = featureLists;
         this.context = context;
     }
@@ -40,7 +41,11 @@ public class StorageOptionAdapter extends RecyclerView.Adapter<RecyclerView.View
         ViewHolder holder = (ViewHolder) viewHolder;
         holder.ivPhoto.setTag(holder);
         holder.tvName.setText(featureList.get(1).getOptions().get(position).getName());
-        Glide.with(context).load(featureList.get(1).getOptions().get(position).getIcon()).centerCrop().into(holder.ivPhoto);
+        if (featureList.get(1).getOptions().get(position).isValid()) {
+            Glide.with(context).load(featureList.get(1).getOptions().get(position).getIcon()).centerCrop().into(holder.ivPhoto);
+        } else {
+            Glide.with(context).load(R.drawable.ic_cross).centerCrop().into(holder.ivPhoto);
+        }
     }
 
     @Override
@@ -54,8 +59,8 @@ public class StorageOptionAdapter extends RecyclerView.Adapter<RecyclerView.View
             int viewId = v.getId();
             ViewHolder viewHolder = (ViewHolder) v.getTag();
             if (viewId == R.id.iv_photo) {
-                if (mobileClickListener != null) {
-                    mobileClickListener.onClick(viewHolder.getAdapterPosition());
+                if (storageClickListener != null) {
+                    storageClickListener.onStorageClickListener(viewHolder.getAdapterPosition());
                 }
             }
         } catch (Exception e) {
@@ -74,12 +79,7 @@ public class StorageOptionAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    public interface MobileClickListener {
-        void onClick(int position);
+    public interface StorageClickListener {
+        void onStorageClickListener(int position);
     }
-
-    public void setMobileClickListener(MobileClickListener mobileClickListener) {
-        this.mobileClickListener = mobileClickListener;
-    }
-
 }

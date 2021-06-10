@@ -21,11 +21,11 @@ public class FeatureAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private Context context;
     private List<Feature> featureList;
     private List<List<Exclusion>> exclusionList;
-    private MobileClickListener mobileClickListener;
+    private FeatureOnClickListener featureOnClickListener;
 
-    public FeatureAdapter(List<Feature> featureLists, List<List<Exclusion>> exclusionList, Context context) {
+    public FeatureAdapter(List<Feature> featureLists, Context context,FeatureOnClickListener featureOnClickListener) {
+        this.featureOnClickListener = featureOnClickListener;
         this.featureList = featureLists;
-        this.exclusionList = exclusionList;
         this.context = context;
     }
 
@@ -57,8 +57,8 @@ public class FeatureAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             int viewId = v.getId();
             ViewHolder viewHolder = (ViewHolder) v.getTag();
             if (viewId == R.id.iv_photo) {
-                if (mobileClickListener != null) {
-                    mobileClickListener.onClick(viewHolder.getAdapterPosition());
+                if (featureOnClickListener != null) {
+                    featureOnClickListener.onFeatureClickListener(viewHolder.getAdapterPosition());
                 }
             }
         } catch (Exception e) {
@@ -77,12 +77,12 @@ public class FeatureAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
     }
 
-    public interface MobileClickListener {
-        void onClick(int position);
+    public interface FeatureOnClickListener {
+        void onFeatureClickListener(int position);
     }
 
-    public void setMobileClickListener(MobileClickListener mobileClickListener) {
-        this.mobileClickListener = mobileClickListener;
-    }
+//    public void setFeatureOnClickListener(FeatureOnClickListener featureOnClickListener) {
+//        this.featureOnClickListener = featureOnClickListener;
+//    }
 
 }

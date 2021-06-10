@@ -14,6 +14,9 @@ public class Option {
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("isValid")
+    @Expose
+    private boolean isValid = true;
 
     public String getName() {
         return name;
@@ -39,4 +42,11 @@ public class Option {
         this.id = id;
     }
 
+    public boolean isValid() {
+        return isValid;
+    }
+
+    public void setValid(boolean valid) {
+        isValid = valid;
+    }
 }

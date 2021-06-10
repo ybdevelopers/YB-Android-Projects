@@ -19,9 +19,10 @@ import java.util.List;
 public class OtherFeatureAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
     private Context context;
     private List<Feature> featureList;
-    private MobileClickListener mobileClickListener;
+    private OtherFeatureClickListener otherFeatureClickListener;
 
-    public OtherFeatureAdapter(List<Feature> featureLists, Context context) {
+    public OtherFeatureAdapter(List<Feature> featureLists, Context context,OtherFeatureClickListener otherFeatureClickListener) {
+        this.otherFeatureClickListener = otherFeatureClickListener;
         this.featureList = featureLists;
         this.context = context;
     }
@@ -54,8 +55,8 @@ public class OtherFeatureAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             int viewId = v.getId();
             ViewHolder viewHolder = (ViewHolder) v.getTag();
             if (viewId == R.id.iv_photo) {
-                if (mobileClickListener != null) {
-                    mobileClickListener.onClick(viewHolder.getAdapterPosition());
+                if (otherFeatureClickListener != null) {
+                    otherFeatureClickListener.onOtherFeatureClickListener(viewHolder.getAdapterPosition());
                 }
             }
         } catch (Exception e) {
@@ -74,12 +75,12 @@ public class OtherFeatureAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public interface MobileClickListener {
-        void onClick(int position);
+    public interface OtherFeatureClickListener {
+        void onOtherFeatureClickListener(int position);
     }
 
-    public void setMobileClickListener(MobileClickListener mobileClickListener) {
-        this.mobileClickListener = mobileClickListener;
-    }
+//    public void setMobileClickListener(OtherFeatureClickListener otherFeatureClickListener) {
+//        this.otherFeatureClickListener = otherFeatureClickListener;
+//    }
 
 }
